@@ -37,3 +37,39 @@ post 'downvote'
 <td><%=button_to '-1',downvote_topic_path(topic), method: :post%></td>
 然后就可以浏览多了一个扣分按钮
 ```
+
+```
+初级练习加分题，解决新增一个'about'页面
+Published on: December 11, 2016
+还是用Google的方法，找到了别人的解法，加以整理和理解，以下是我的解法：
+
+1. 在主页面（index）最后，增加一个about按钮，并设置跳转的超链接
+修改index.html.erb，如下：
+
+app/view/topic/index.html.erb
+<%= link_to 'About', about_path %>
+2. 增加一个about页面，并添加内容
+首先，创建一个新文件：
+
+touch app/views/topics/about.html.erb
+添加内容：
+
+about.html.erb
+<h1>About the site</h1>
+<p>Welcome to our site!</p>
+<%= link_to 'Back', topics_path %>
+3. 然后，在routes.rb中加入一行代码，把about按钮指向about页面。
+config/routes.rb
+get 'about' => 'topics#about'
+其中，routes.rb就像是一个地址簿，其中列出所有可以使用的地址，以及对应到的程式码。
+
+4. 最后，在topics_controller.rb中加一个about的method。
+app/controllers/topics_controller.rb
+def about
+end
+（亲测，这步没有也没啥问题。）
+
+搞掂。
+```
+
+http://yammy-blog.logdown.com/?page=21

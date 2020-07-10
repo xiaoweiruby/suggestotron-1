@@ -4,9 +4,12 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
 
+  def about
+  end
+
   def downvote
    @topic = Topic.find(params[:id])
-   @topic.votes.first.destroy
+   @topic.votes.first.try(:destroy)
    redirect_to(topics_path)
 end
 
