@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'about' => 'topics#about'
-  root 'topics#index'
+  root 'welcome#index'
   resources :topics do
     member do
       post 'upvote'
